@@ -3,7 +3,11 @@ This plugin for [Obsidian](https://obsidian.md) allows developers to instantly p
 
 ![markdown-blogger-demo](/images/md-blogger-demo.gif)
 
-Get the benefits of composing markdown notes in Obsidian without having to manually create files and copy-paste content into your local project. Also makes it much easier to keep these two files in-sync. 
+Get the benefits of composing markdown notes in Obsidian without having to manually create files and copy-paste content into your local 
+project. Also makes it much easier to keep these two files in-sync. 
+
+## Video Tutorial
+[![Markdown Blogger Video Tutorial](https://img.youtube.com/vi/VUU_dVG08Ps/0.jpg)](https://youtu.be/VUU_dVG08Ps)
 
 ## Features
 - **Push** a markdown note to a local project folder (Obsidian -> Project)
