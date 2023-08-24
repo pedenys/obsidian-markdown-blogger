@@ -7,6 +7,7 @@ Get the benefits of composing markdown notes in Obsidian without having to manua
 project. Also makes it much easier to keep these two files in-sync. 
 
 ## Video Tutorial
+Click to watch!
 [![Markdown Blogger Video Tutorial](https://img.youtube.com/vi/VUU_dVG08Ps/0.jpg)](https://youtu.be/VUU_dVG08Ps)
 
 ## Features
