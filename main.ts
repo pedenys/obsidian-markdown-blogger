@@ -74,43 +74,41 @@ export default class MarkdownBlogger extends Plugin {
 					new ErrorModal(this.app).open();
 					return;
 				}
-				const text = editor.getDoc().getValue();
-				const projectBlogPath = path.resolve(
-					this.settings.projectFolder,
-					view.file.name
-				);
+				// const text = editor.getDoc().getValue();
+
 				const folderName = view.file.parent?.name;
 				console.log({ informations: view.file, folderName });
 				if (folderName) {
-					const folderPath = path.resolve(
+					const sourcePath = path.resolve(
+						// @ts-expect-error
+						view.file.vault.adapter.basePath,
+						view.file.parent?.path as string
+					);
+
+					const destinationPath = path.resolve(
 						this.settings.projectFolder,
 						folderName
 					);
 
 					try {
-						try {
-							fs.mkdirSync(folderPath, { recursive: true });
-						} catch (error) {
-							console.error(
-								"error while creating folder",
-								error,
-								folderPath
-							);
-						}
-
-						const filePath = path.resolve(
-							folderPath,
-							view.file.name
-						);
-
-						fs.writeFileSync(filePath, text, {
-							encoding: "utf8",
+						// src, dest, options
+						fs.cpSync(sourcePath, destinationPath, {
+							recursive: true,
 						});
+
 						new Notice(
-							`Your file has been pushed! At ${projectBlogPath}`
+							`Your file has been pushed! From ${sourcePath} to ${destinationPath}`
 						);
-					} catch (err) {
-						new Notice(err.message);
+
+						console.log({ sourcePath, destinationPath });
+					} catch (error) {
+						console.error(
+							"error while creating folder",
+							error,
+							sourcePath,
+							destinationPath
+						);
+						new Notice(error.message);
 					}
 				}
 			},
